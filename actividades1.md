@@ -4,6 +4,7 @@ Hexacta Labs: .NET MVC - Primera parte
 #Actividades
 
 ####Ejercicio 1: Pantallas para Películas y Géneros:
+El objetivo del ejercicio es retornar todos los objetos películas de la BD y listarlos en su vista correspondiente.
 
 #####1-	Crear el service con el método FindAll:
 Dentro del proyecto Data agregar dos clases llamadas GenreService y MovieService. Cada servicio con un método GetAll retornando una lista de cada entidad:
