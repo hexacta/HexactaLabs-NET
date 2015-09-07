@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/packages/EntityFramework.5.0.0/tools
+END
+EntityFramework.psd1
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/packages/EntityFramework.5.0.0/tools/EntityFramework.psd1
+END
+EntityFramework.PS3.psd1
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/packages/EntityFramework.5.0.0/tools/EntityFramework.PS3.psd1
+END
+Redirect.config
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/packages/EntityFramework.5.0.0/tools/Redirect.config
+END
+init.ps1
+K 25
+svn:wc:ra_dav:version-url
+V 114
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/packages/EntityFramework.5.0.0/tools/init.ps1
+END
+EntityFramework.PowerShell.dll
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/packages/EntityFramework.5.0.0/tools/EntityFramework.PowerShell.dll
+END
+install.ps1
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/packages/EntityFramework.5.0.0/tools/install.ps1
+END
+migrate.exe
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/packages/EntityFramework.5.0.0/tools/migrate.exe
+END
+EntityFramework.PowerShell.Utility.dll
+K 25
+svn:wc:ra_dav:version-url
+V 144
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/packages/EntityFramework.5.0.0/tools/EntityFramework.PowerShell.Utility.dll
+END
+EntityFramework.psm1
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/packages/EntityFramework.5.0.0/tools/EntityFramework.psm1
+END
+about_EntityFramework.help.txt
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/packages/EntityFramework.5.0.0/tools/about_EntityFramework.help.txt
+END
+Redirect.VS11.config
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/packages/EntityFramework.5.0.0/tools/Redirect.VS11.config
+END

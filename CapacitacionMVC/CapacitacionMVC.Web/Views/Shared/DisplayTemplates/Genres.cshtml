@@ -1,0 +1,3 @@
+﻿@model IEnumerable<CapacitacionMVC.Entities.Genre>
+
+@string.Join(", ", Model.Select(s => s.Name).OrderBy(o => o))

@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapacitacionMVC.Data", "CapacitacionMVC.Data\CapacitacionMVC.Data.csproj", "{821929CE-A7CC-4DC9-8959-678B94CDDA3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapacitacionMVC.Entities", "CapacitacionMVC.Entities\CapacitacionMVC.Entities.csproj", "{3FDB9FF7-DDC6-4D4C-B57C-40097B7E0458}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapacitacionMVC.Web", "CapacitacionMVC.Web\CapacitacionMVC.Web.csproj", "{738A4B72-30CB-4B20-8DF9-A85E7FDBD113}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{821929CE-A7CC-4DC9-8959-678B94CDDA3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{821929CE-A7CC-4DC9-8959-678B94CDDA3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{821929CE-A7CC-4DC9-8959-678B94CDDA3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{821929CE-A7CC-4DC9-8959-678B94CDDA3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FDB9FF7-DDC6-4D4C-B57C-40097B7E0458}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FDB9FF7-DDC6-4D4C-B57C-40097B7E0458}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FDB9FF7-DDC6-4D4C-B57C-40097B7E0458}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FDB9FF7-DDC6-4D4C-B57C-40097B7E0458}.Release|Any CPU.Build.0 = Release|Any CPU
+		{738A4B72-30CB-4B20-8DF9-A85E7FDBD113}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{738A4B72-30CB-4B20-8DF9-A85E7FDBD113}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{738A4B72-30CB-4B20-8DF9-A85E7FDBD113}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{738A4B72-30CB-4B20-8DF9-A85E7FDBD113}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

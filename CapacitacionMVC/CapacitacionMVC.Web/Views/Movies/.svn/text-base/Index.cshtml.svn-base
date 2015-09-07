@@ -1,0 +1,103 @@
+﻿@model CapacitacionMVC.Web.Models.MoviesIndexModel
+
+@{
+    ViewBag.Title = "Movies";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Películas</h2>
+<br />
+
+@using (Html.BeginForm("Index", "Movies", FormMethod.Get, new { @class = "form-inline", role = "form" }))
+{
+    <div class="form-group" style="min-width: 400px;">
+        @Html.TextBoxFor(m => m.SearchText, new { @class = "form-control input-lg", type = "search", placeholder = Html.DisplayNameFor(m => m.SearchText), autofocus = "autofocus" })
+    </div>
+    <button class="btn btn-primary btn-lg text-left" type="submit">Buscar</button>
+}
+
+<br />
+<br />
+
+@if (User.Identity.IsAuthenticated)
+{
+    <style>
+        th {
+            text-align: left;
+        }
+    </style>
+
+    <a class="btn btn-default" href="@Url.Action("Create")">Create Movie</a>
+
+    <br />
+    <br />
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th style="display: none;"></th>
+                <th>Name</th>
+                <th>Release Date</th>
+                <th>Runtime</th>
+                <th>Genres</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var movie in Model.Movies)
+            {
+                <tr>
+                    <td style="display: none;">@Html.HiddenFor(m => movie.Id)</td>
+                    <td>
+                        <img src="@movie.CoverLink" style="height: 30px;" />
+                        <span id="movie_Name">@movie.Name</span>
+                    </td>
+                    <td>@Html.DisplayFor(m => movie.ReleaseDate, "Date")</td>
+                    <td>@movie.Runtime</td>
+                    <td>@Html.DisplayFor(m => movie.Genres, "Genres")</td>
+                    <td>@Html.ActionLink("Edit", "Edit", new { movie.Id }) | <a class="deleteMovie" href="javascript:void(0)">Delete</a></td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <script>
+        $(document).ready(function () {
+            $('.deleteMovie').click(function () {
+                var row = $(this).parents('tr');
+                var movieName = row.find('#movie_Name').text();
+
+                if (!confirm('Are you sure you want to delete the movie: ' + movieName + '?')) {
+                    return false;
+                }
+
+                var movieId = row.find('#movie_Id').val();
+
+                $.ajax({
+                    url: '@Url.Action("Delete")/' + movieId
+                }).done(function () {
+                    alert("The movie has been deleted");
+
+                    row.remove();
+                }).fail(function () { alert("error"); });
+            });
+        });
+    </script>
+}
+else
+{
+    <div class="row ">
+        @foreach (var movie in Model.Movies)
+        {
+            <div class="col-sm-6 col-md-3">
+                <div class="thumbnail">
+                    <img data-src="holder.js/400x300" src="@movie.CoverLink" style="max-width: 400px; max-height: 300px;">
+
+                    <div class="caption">
+                        <p class="text-center text-primary"><strong>@movie.Name</strong></p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

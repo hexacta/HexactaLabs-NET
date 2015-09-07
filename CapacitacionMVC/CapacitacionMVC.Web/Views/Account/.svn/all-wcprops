@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 102
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/CapacitacionMVC.Web/Views/Account
+END
+_ExternalLoginsListPartial.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 136
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/CapacitacionMVC.Web/Views/Account/_ExternalLoginsListPartial.cshtml
+END
+Login.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/CapacitacionMVC.Web/Views/Account/Login.cshtml
+END
+Manage.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/CapacitacionMVC.Web/Views/Account/Manage.cshtml
+END
+_RemoveExternalLoginsPartial.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 138
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/CapacitacionMVC.Web/Views/Account/_RemoveExternalLoginsPartial.cshtml
+END
+_SetPasswordPartial.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 129
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/CapacitacionMVC.Web/Views/Account/_SetPasswordPartial.cshtml
+END
+ExternalLoginFailure.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 130
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/CapacitacionMVC.Web/Views/Account/ExternalLoginFailure.cshtml
+END
+ExternalLoginConfirmation.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 135
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/CapacitacionMVC.Web/Views/Account/ExternalLoginConfirmation.cshtml
+END
+Register.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/CapacitacionMVC.Web/Views/Account/Register.cshtml
+END
+_ChangePasswordPartial.cshtml
+K 25
+svn:wc:ra_dav:version-url
+V 132
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/CapacitacionMVC.Web/Views/Account/_ChangePasswordPartial.cshtml
+END

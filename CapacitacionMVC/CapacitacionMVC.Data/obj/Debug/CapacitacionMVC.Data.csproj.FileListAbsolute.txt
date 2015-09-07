@@ -1,0 +1,10 @@
+C:\Users\userhx\Desktop\CapacitacionMVC\CapacitacionMVC.Data\bin\Debug\CapacitacionMVC.Data.dll.config
+C:\Users\userhx\Desktop\CapacitacionMVC\CapacitacionMVC.Data\bin\Debug\CapacitacionMVC.Data.dll
+C:\Users\userhx\Desktop\CapacitacionMVC\CapacitacionMVC.Data\bin\Debug\CapacitacionMVC.Data.pdb
+C:\Users\userhx\Desktop\CapacitacionMVC\CapacitacionMVC.Data\bin\Debug\CapacitacionMVC.Entities.dll
+C:\Users\userhx\Desktop\CapacitacionMVC\CapacitacionMVC.Data\bin\Debug\EntityFramework.dll
+C:\Users\userhx\Desktop\CapacitacionMVC\CapacitacionMVC.Data\bin\Debug\CapacitacionMVC.Entities.pdb
+C:\Users\userhx\Desktop\CapacitacionMVC\CapacitacionMVC.Data\bin\Debug\EntityFramework.xml
+C:\Users\userhx\Desktop\CapacitacionMVC\CapacitacionMVC.Data\obj\Debug\CapacitacionMVC.Data.csprojResolveAssemblyReference.cache
+C:\Users\userhx\Desktop\CapacitacionMVC\CapacitacionMVC.Data\obj\Debug\CapacitacionMVC.Data.dll
+C:\Users\userhx\Desktop\CapacitacionMVC\CapacitacionMVC.Data\obj\Debug\CapacitacionMVC.Data.pdb

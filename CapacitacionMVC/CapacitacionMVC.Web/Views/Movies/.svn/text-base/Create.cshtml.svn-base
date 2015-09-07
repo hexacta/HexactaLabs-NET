@@ -1,0 +1,91 @@
+﻿@using CapacitacionMVC.Web.HtmlHelpers
+@using CapacitacionMVC.Web.Models
+@model MoviesCreateModel
+
+@{
+    ViewBag.Title = Model.ViewAction + " Movie";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<style>
+    select[multiple], select[size] {
+        height: 133px;
+    }
+</style>*@
+
+<h2>@(Model.ViewAction == ViewAction.Create ? "Crear" : "Editar") Película</h2>
+
+<br />
+
+@using (Html.BeginForm(Model.ViewAction.ToString(), "Movies", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.ValidationSummary(true)
+
+    @Html.HiddenFor(m => m.Movie.Id)
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Movie.Name, new { @class = "col-lg-2 control-label" })
+
+        <div class="col-lg-10">
+            @Html.TextBoxFor(m => m.Movie.Name, new { @class = "form-control", placeholder = Html.DisplayNameFor(m => m.Movie.Name) })
+            @Html.ValidationMessageFor(m => m.Movie.Name)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Movie.ReleaseDate, new { @class = "col-lg-2 control-label" })
+
+        <div class="col-lg-10">
+            @*@Html.TextBoxFor(m => m.Movie.ReleaseDate, Model.Movie.ReleaseDate.HasValue ? Model.Movie.ReleaseDate.Value.ToString("yyyy-MM-dd") : null, new { type = "date" })*@
+            @Html.EditorFor(m => m.Movie.ReleaseDate, "Date")
+            @Html.ValidationMessageFor(m => m.Movie.ReleaseDate)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Movie.Runtime, new { @class = "col-lg-2 control-label" })
+
+        <div class="col-lg-10">
+            @Html.TextBoxPlaceHolderFor(m => m.Movie.Runtime, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Movie.Runtime)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Movie.CoverLink, new { @class = "col-lg-2 control-label" })
+
+        <div class="col-lg-10">
+            @Html.TextBoxPlaceHolderFor(m => m.Movie.CoverLink, new { @class = "form-control" })
+            @Html.ValidationMessageFor(m => m.Movie.CoverLink)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Movie.Plot, new { @class = "col-lg-2 control-label" })
+
+        <div class="col-lg-10">
+            @Html.TextAreaFor(m => m.Movie.Plot, new { @class = "form-control", placeholder = Html.DisplayNameFor(m => m.Movie.Plot) })
+            @Html.ValidationMessageFor(m => m.Movie.Plot)
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Movie.Genres, new { @class = "col-lg-2 control-label" })
+
+        <div class="col-lg-10">
+            @Html.ListBox("selectedGenres", Model.Genres.Select(s => new SelectListItem() { Text = s.Name, Value = s.Id.ToString(), Selected = Model.Movie.Genres.Any(a => a.Id == s.Id) }), new { @class = "form-control", size = "8" })
+            @Html.ValidationMessageFor(m => m.Movie.Genres)
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-lg-offset-2 col-lg-10">
+            <button class="btn btn-primary" type="submit">Save Movie</button>
+
+            <a class="btn btn-link" href="@Url.Action("Index", "Movies")">Cancel</a>
+        </div>
+    </div>
+}
+
+@section scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

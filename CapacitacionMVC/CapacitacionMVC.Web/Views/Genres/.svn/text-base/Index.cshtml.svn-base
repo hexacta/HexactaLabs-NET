@@ -1,0 +1,27 @@
+﻿@model CapacitacionMVC.Web.Models.GenresIndexModel
+
+@{
+    ViewBag.Title = "Genres";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Géneros</h2>
+<br />
+
+@using (Html.BeginForm("Index", "Genres", FormMethod.Get, new { @class = "form-inline", role = "form" }))
+{
+    <div class="form-group" style="min-width: 400px;">
+        @Html.TextBoxFor(m => m.SearchText, new { @class = "form-control input-lg", type = "search", placeholder = Html.DisplayNameFor(m => m.SearchText), autofocus = "autofocus" })
+    </div>
+    <button class="btn btn-primary btn-lg text-left" type="submit">Buscar</button>
+}
+
+<br />
+<br />
+
+<div class="list-group">
+    @foreach (var genre in Model.Genres)
+    {
+        @Html.ActionLink(genre.Name, "Index", "Movies", new { genreId = genre.Id }, new{@class="list-group-item"})
+    }
+</div>

@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 89
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/CapacitacionMVC.Data
+END
+packages.config
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/CapacitacionMVC.Data/packages.config
+END
+App.config
+K 25
+svn:wc:ra_dav:version-url
+V 100
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/CapacitacionMVC.Data/App.config
+END
+MovieService.cs
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/CapacitacionMVC.Data/MovieService.cs
+END
+GenreService.cs
+K 25
+svn:wc:ra_dav:version-url
+V 105
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/CapacitacionMVC.Data/GenreService.cs
+END
+CapacitacionMVC.Data.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/CapacitacionMVC.Data/CapacitacionMVC.Data.csproj
+END
+MoviesContext.cs
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/CapacitacionMVC.Data/MoviesContext.cs
+END
+IMovieService.cs
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/CapacitacionMVC.Data/IMovieService.cs
+END
+IGenreService.cs
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/CapacitacionMVC.Data/IGenreService.cs
+END

@@ -1,0 +1,49 @@
+10
+
+dir
+155
+https://svn.hexacta.com/svn/HexactaLabs/trunk/Microsoft%20.NET/CapacitacionMVC/packages/Newtonsoft.Json.5.0.6/lib
+https://svn.hexacta.com/svn/HexactaLabs
+
+
+
+2013-10-02T13:47:08.062232Z
+128
+mribichich
+has-props
+
+
+
+
+
+
+
+
+
+
+
+
+
+7306e76a-8fa0-4dc6-aa8e-8f42ae9f10c8
+
+net45
+dir
+
+portable-net45+wp80+win8
+dir
+
+net20
+dir
+
+netcore45
+dir
+
+portable-net40+sl4+wp7+win8
+dir
+
+net40
+dir
+
+net35
+dir
+

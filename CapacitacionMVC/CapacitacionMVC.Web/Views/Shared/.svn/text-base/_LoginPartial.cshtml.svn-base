@@ -1,0 +1,32 @@
+﻿@if (Request.IsAuthenticated)
+{
+    <div style="color: #555555;">
+        <span class="glyphicon glyphicon-user"></span>&nbsp;<span>@User.Identity.Name</span>
+        &nbsp;
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", style = "display: inline-block;" }))
+        {
+            @Html.AntiForgeryToken()
+            <a href="javascript:document.getElementById('logoutForm').submit()">Salir</a>
+        }
+    </div>
+}
+else
+{
+@*using (Html.BeginForm("Login", "Account", new { ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "navbar-form navbar-right", role = "form" }))
+    {
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        <input type="text" placeholder="Username" class="form-control">
+    </div>
+    <div class="form-group">
+        <input type="password" placeholder="Password" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-success">Sign in</button>
+    }*@
+
+    @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+    @: or
+    @Html.ActionLink("Registrarse", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+
+}

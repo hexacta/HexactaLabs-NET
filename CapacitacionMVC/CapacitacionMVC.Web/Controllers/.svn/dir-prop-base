@@ -1,0 +1,22 @@
+K 13
+bugtraq:label
+V 10
+Issue ID :
+K 15
+bugtraq:message
+V 16
+IssueID %BUGID% 
+K 14
+bugtraq:number
+V 5
+false
+K 21
+bugtraq:warnifnoissue
+V 4
+true
+K 10
+svn:ignore
+V 8
+Test.cs
+
+END

@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>@ViewBag.Title</title>
+
+    @Scripts.Render("~/bundles/modernizr")
+
+    @Styles.Render("~/Content/bootstrap/bootstrap")
+    @Styles.Render("~/Content/css")
+
+    @Scripts.Render("~/bundles/jquery")
+</head>
+
+<body>
+    <div id="wrap">
+        <div class="container">
+            <div class="navbar navbar-default" style="margin-top: 20px;">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="@Url.Action("Index", "Home")">
+                        <img style="height: 18px; margin-top: -5px;" src="@Url.Content("~/Content/images/hexactalogo2.png")" alt="Hexacta" />
+                    </a>
+                </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        @{var controller = ViewContext.RouteData.Values["controller"].ToString().ToLower();}
+                        <li class="@(controller == "home" ? "active" : null)"><a href="@Url.Action("Index", "Home")"><span class="glyphicon glyphicon-home"></span></a></li>
+                        <li class="@(controller == "genres" ? "active" : null)"><a href="@Url.Action("Index", "Genres")">Géneros</a></li>
+                        <li class="@(controller == "movies" ? "active" : null)"><a href="@Url.Action("Index", "Movies")">Películas</a></li>
+                    </ul>
+
+                    <div class="nav navbar-nav navbar-right">
+                        <div style="margin: 15px;">@Html.Partial("_LoginPartial")</div>
+                    </div>
+                </div>
+            </div>
+
+            @if (TempData["successmessage"] != null)
+            {
+                <div class="alert alert-success">@TempData["successmessage"]</div>
+
+                <br />
+            }
+
+            @RenderBody()
+        </div>
+    </div>
+
+    <div id="footer">
+        <div class="container">
+            <p class="text-muted">
+                Hexacta &copy; 2013 - <a href="mailto:hat@hexacta.com"><span class="glyphicon glyphicon-envelope"></span>&nbsp;HAT</a>
+            </p>
+        </div>
+    </div>
+
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

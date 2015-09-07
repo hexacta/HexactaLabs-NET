@@ -1,0 +1,77 @@
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/CapacitacionMVC.Web/Models
+END
+ExternalLogin.cs
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/CapacitacionMVC.Web/Models/ExternalLogin.cs
+END
+MoviesIndexModel.cs
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/CapacitacionMVC.Web/Models/MoviesIndexModel.cs
+END
+GenresIndexModel.cs
+K 25
+svn:wc:ra_dav:version-url
+V 115
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/CapacitacionMVC.Web/Models/GenresIndexModel.cs
+END
+LocalPasswordModel.cs
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/CapacitacionMVC.Web/Models/LocalPasswordModel.cs
+END
+UserProfile.cs
+K 25
+svn:wc:ra_dav:version-url
+V 110
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/CapacitacionMVC.Web/Models/UserProfile.cs
+END
+RegisterExternalLoginModel.cs
+K 25
+svn:wc:ra_dav:version-url
+V 125
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/CapacitacionMVC.Web/Models/RegisterExternalLoginModel.cs
+END
+RegisterModel.cs
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/CapacitacionMVC.Web/Models/RegisterModel.cs
+END
+UsersContext.cs
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/CapacitacionMVC.Web/Models/UsersContext.cs
+END
+MoviesCreateModel.cs
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/CapacitacionMVC.Web/Models/MoviesCreateModel.cs
+END
+ViewAction.cs
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/CapacitacionMVC.Web/Models/ViewAction.cs
+END
+LoginModel.cs
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/CapacitacionMVC.Web/Models/LoginModel.cs
+END
+MoviesDetailsModel.cs
+K 25
+svn:wc:ra_dav:version-url
+V 117
+/svn/HexactaLabs/!svn/ver/128/trunk/Microsoft%20.NET/CapacitacionMVC/CapacitacionMVC.Web/Models/MoviesDetailsModel.cs
+END

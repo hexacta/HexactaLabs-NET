@@ -1,0 +1,33 @@
+﻿@model CapacitacionMVC.Web.Models.MoviesDetailsModel
+
+@{
+    ViewBag.Title = Model.Movie.Name;
+    Layout = "~/Views/Shared/_MoviesLayout.cshtml";
+}
+
+@Html.ActionLink("Back to Movies", "Index", "Movies")
+
+<br />
+<br />
+
+<div style="display: table;">
+    <div style="display: table-cell;">
+        <img src="@Model.Movie.CoverLink" style="width: 200px;" />
+    </div>
+
+    <div style="display: table-cell; padding-left: 20px; vertical-align: top;">
+        <h2>@Model.Movie.Name</h2>
+        <br />
+
+        <div>Release Date: @Html.DisplayFor(m => m.Movie.ReleaseDate, "Date")</div>
+        <br />
+
+        <div>Runtime: @Html.DisplayFor(m => m.Movie.Runtime)</div>
+        <br />
+
+        <div>Genres: @Html.DisplayFor(m => m.Movie.Genres, "Genres")</div>
+        <br />
+
+        <div>Plot: @Html.DisplayFor(m => m.Movie.Plot)</div>
+    </div>
+</div>
