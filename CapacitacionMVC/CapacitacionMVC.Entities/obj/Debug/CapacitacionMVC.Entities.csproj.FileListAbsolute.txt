@@ -1,5 +1,0 @@
-C:\Users\userhx\Desktop\CapacitacionMVC\CapacitacionMVC.Entities\bin\Debug\CapacitacionMVC.Entities.dll
-C:\Users\userhx\Desktop\CapacitacionMVC\CapacitacionMVC.Entities\bin\Debug\CapacitacionMVC.Entities.pdb
-C:\Users\userhx\Desktop\CapacitacionMVC\CapacitacionMVC.Entities\obj\Debug\CapacitacionMVC.Entities.csprojResolveAssemblyReference.cache
-C:\Users\userhx\Desktop\CapacitacionMVC\CapacitacionMVC.Entities\obj\Debug\CapacitacionMVC.Entities.dll
-C:\Users\userhx\Desktop\CapacitacionMVC\CapacitacionMVC.Entities\obj\Debug\CapacitacionMVC.Entities.pdb
