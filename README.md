@@ -4,7 +4,7 @@
 Es necesario contar con el siguiente software para poder realizar las actividades:
 
  - Microsoft Windows 7 o superior.
- - [Microsoft SQL Server 2014 Express Edition y SQL Server Management Studio](http://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/sql-server-express.aspx) . Version Gratuita, se necesita una cuenta gratis Microsoft para la descarga
+ - [Microsoft SQL Server 2014 Express Edition](http://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/sql-server-express.aspx) . Version Gratuita, se necesita una cuenta gratis Microsoft para la descarga. Seleccionar el paquete **SQL Server 2014 Express with Advanced Services**
  - [Microsoft Visual Studio Community Edition](https://www.visualstudio.com/products/visual-studio-community-vs) Version gratuita, asegurarse de instalar con todos los complementos para C Sharp y MVC
  
 [Primera Parte - Actividades1](actividades1.md)
