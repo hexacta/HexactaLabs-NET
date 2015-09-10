@@ -15,8 +15,11 @@ Es necesario contar con el siguiente software para poder realizar las actividade
 - El script sql con el schema y los datos se deberá correr conectado a la nueva base `Capacitacion_MVC`.
 - Por último es necesario descargar la solución inicial y apuntar la aplicación web a la base de datos creada en el punto anterior, con el correspondiente connection string en el archivo `Web.config`.
 - Un ejemplo de connection string:
+```
 <add name="MoviesContext" connectionString="data source=localhost\SQLEXPRESS;initial catalog=Capacitacion_MVC;Trusted_Connection=True;App=EntityFramework" providerName="System.Data.SqlClient" />
 - La conexión al servidor 'SQLEXPRESS' en localhost, utilizando la autenticación por usuario de windows en el servidor SqlServer (Trusted_Connection=True o Security=SSPI).
+```
+
 --
 --
  
