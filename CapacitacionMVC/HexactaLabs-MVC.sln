@@ -1,0 +1,77 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexactaLabs-MVC", "HexactaLabs-MVC\HexactaLabs-MVC.csproj", "{3B08F583-F30E-447D-9221-2AD00B54EE86}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04-Presentation", "04-Presentation", "{A40521A4-97D8-4D78-A3BF-1D7A347AF44A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "03-Services", "03-Services", "{31B63D51-D8ED-4086-B0D6-3308213CCB0D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "02-Business", "02-Business", "{C7ECCF6A-F585-415D-97F2-2FCDBA5D5F45}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "01-Persistence", "01-Persistence", "{CE5E1E56-0E15-4DE5-AA90-451E5E14F551}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "00-Common", "00-Common", "{7376BE6E-4982-4AD4-AC6E-505F38DB09D4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexactaLabs-MVC.Business", "HexactaLabs-MVC.Business\HexactaLabs-MVC.Business.csproj", "{B94689E5-8D5E-4B63-8D79-29702E5550A2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexactaLabs-MVC.Persistence", "HexactaLabs-MVC.Persistence\HexactaLabs-MVC.Persistence.csproj", "{DE756FA8-2E4C-413E-B283-A80CF7DDAF8E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexactaLabs-MVC.IServices", "HexactaLabs-MVC.IServices\HexactaLabs-MVC.IServices.csproj", "{2B643BF0-E01C-4297-A5D2-F4E42180CCDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexactaLabs-MVC.Services", "HexactaLabs-MVC.Services\HexactaLabs-MVC.Services.csproj", "{971BBAA6-7793-4AC5-A998-AB0F6B0D0257}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexactaLabs-MVC.Dtos", "HexactaLabs-MVC.Dtos\HexactaLabs-MVC.Dtos.csproj", "{DB3B660A-A94B-484C-A168-CED079B94890}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HexactaLabs-MVC.Bootstrapper", "HexactaLabs-MVC.Bootstrapper\HexactaLabs-MVC.Bootstrapper.csproj", "{F89A0B07-9892-425E-B0A6-950373F18A16}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3B08F583-F30E-447D-9221-2AD00B54EE86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B08F583-F30E-447D-9221-2AD00B54EE86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B08F583-F30E-447D-9221-2AD00B54EE86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B08F583-F30E-447D-9221-2AD00B54EE86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B94689E5-8D5E-4B63-8D79-29702E5550A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B94689E5-8D5E-4B63-8D79-29702E5550A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B94689E5-8D5E-4B63-8D79-29702E5550A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B94689E5-8D5E-4B63-8D79-29702E5550A2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE756FA8-2E4C-413E-B283-A80CF7DDAF8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE756FA8-2E4C-413E-B283-A80CF7DDAF8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE756FA8-2E4C-413E-B283-A80CF7DDAF8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE756FA8-2E4C-413E-B283-A80CF7DDAF8E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B643BF0-E01C-4297-A5D2-F4E42180CCDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B643BF0-E01C-4297-A5D2-F4E42180CCDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B643BF0-E01C-4297-A5D2-F4E42180CCDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B643BF0-E01C-4297-A5D2-F4E42180CCDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{971BBAA6-7793-4AC5-A998-AB0F6B0D0257}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{971BBAA6-7793-4AC5-A998-AB0F6B0D0257}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{971BBAA6-7793-4AC5-A998-AB0F6B0D0257}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{971BBAA6-7793-4AC5-A998-AB0F6B0D0257}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB3B660A-A94B-484C-A168-CED079B94890}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB3B660A-A94B-484C-A168-CED079B94890}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB3B660A-A94B-484C-A168-CED079B94890}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB3B660A-A94B-484C-A168-CED079B94890}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F89A0B07-9892-425E-B0A6-950373F18A16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F89A0B07-9892-425E-B0A6-950373F18A16}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F89A0B07-9892-425E-B0A6-950373F18A16}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F89A0B07-9892-425E-B0A6-950373F18A16}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3B08F583-F30E-447D-9221-2AD00B54EE86} = {A40521A4-97D8-4D78-A3BF-1D7A347AF44A}
+		{B94689E5-8D5E-4B63-8D79-29702E5550A2} = {C7ECCF6A-F585-415D-97F2-2FCDBA5D5F45}
+		{DE756FA8-2E4C-413E-B283-A80CF7DDAF8E} = {CE5E1E56-0E15-4DE5-AA90-451E5E14F551}
+		{2B643BF0-E01C-4297-A5D2-F4E42180CCDE} = {31B63D51-D8ED-4086-B0D6-3308213CCB0D}
+		{971BBAA6-7793-4AC5-A998-AB0F6B0D0257} = {31B63D51-D8ED-4086-B0D6-3308213CCB0D}
+		{DB3B660A-A94B-484C-A168-CED079B94890} = {31B63D51-D8ED-4086-B0D6-3308213CCB0D}
+		{F89A0B07-9892-425E-B0A6-950373F18A16} = {7376BE6E-4982-4AD4-AC6E-505F38DB09D4}
+	EndGlobalSection
+EndGlobal
