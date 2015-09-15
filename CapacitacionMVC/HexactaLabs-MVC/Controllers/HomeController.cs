@@ -10,7 +10,7 @@ namespace HexactaLabs_MVC.Controllers
         public HomeController(IMovieService movieService)
         {
             this.movieService = movieService;
-            this.movieService.GetMovie(1);
+            this.movieService.GetMovie(1); // se ejecuta una consulta a para que se dummy para que se cree la base de datos si no existe
         }
 
         public ActionResult Index()

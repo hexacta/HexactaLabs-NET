@@ -2,11 +2,7 @@
 using HexactaLabs_MVC.Business.Movies;
 using HexactaLabs_MVC.Dtos.Movies;
 using HexactaLabs_MVC.IServices.Movies;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace HexactaLabs_MVC.Services.Movies
 {
@@ -21,7 +17,12 @@ namespace HexactaLabs_MVC.Services.Movies
 
         public MovieDto GetMovie(int id)
         {
-            Movie movie = movieRepository.First(x => x.Id == id);
+            var movie = movieRepository.First(x => x.Id == id);
+
+            if (movie == null)
+            {
+                return null;
+            }
 
             //TODO: REFACTOR - De que otra manera se podria hacer?
             return new MovieDto()

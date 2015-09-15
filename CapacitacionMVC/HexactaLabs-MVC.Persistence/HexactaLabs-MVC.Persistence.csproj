@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\DBInitializer.cs" />
     <Compile Include="Common\MoviesContext.cs" />
     <Compile Include="Common\Repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
