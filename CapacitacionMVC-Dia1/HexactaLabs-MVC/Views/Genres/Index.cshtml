@@ -1,0 +1,37 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model HexactaLabs_MVC.Models.FilterViewModel
+
+<section>
+
+@using (Html.BeginForm("Index", "Genres"))
+        {
+            <div> 
+                @Html.TextBoxFor(m => m.Filter)
+                <input type="submit" value="Search" />
+
+            </div>
+        }
+    <div class="list-group">
+        <table>
+            <thead>
+                <tr>
+                    <th>Generos</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var genre in @TempData["GenreList"] as IEnumerable<HexactaLabs_MVC.Dtos.Genres.GenreDto>)
+                {
+                    <tr>
+                        <td>
+                            @Html.ActionLink(genre.Name, "Index", "Movies", new { genreId = @genre.Id }, new { })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+</section>
+
