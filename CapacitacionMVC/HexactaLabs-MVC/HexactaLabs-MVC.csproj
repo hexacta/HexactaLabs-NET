@@ -124,8 +124,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\EstimationViewModel.cs" />
+    <Compile Include="Models\MovieViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\Movies\MoviesController.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap\bootstrap-theme.css" />
@@ -211,13 +212,14 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Shared\DisplayTemplates\Date.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Views\Movies\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Helpers\" />
     <Folder Include="Models\Mappers\" />
     <Folder Include="Views\Genres\" />
-    <Folder Include="Views\Movies\" />
+    <Folder Include="Views\Movie\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

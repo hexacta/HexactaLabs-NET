@@ -7,9 +7,11 @@ Hexacta Labs: .NET MVC - Segunda parte
 
 #####1-	Crear una nueva acción Create en el controlador de películas:
 ```
+[HttpGet]
 public ActionResult Create()
 {
-   return this.View(new MoviesCreateModel() { ViewAction = ViewAction.Create, Movie = new Movie()});
+	this.ViewData.Model = new MovieViewModel();
+	return this.View();
 }
 ```
 

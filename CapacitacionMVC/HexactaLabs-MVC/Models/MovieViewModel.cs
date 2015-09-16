@@ -7,7 +7,7 @@ using System.Web;
 
 namespace HexactaLabs_MVC.Models
 {
-    public class EstimationViewModel
+    public class MovieViewModel
     {
         [Required]
         [StringLength(100)]

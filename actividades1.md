@@ -1,125 +1,339 @@
-Hexacta Labs: .NET MVC - Primera parte
-======================================
 
-#Actividades
+https://github.com/hexacta/HexactaLabs-NET/tree/HexactaLabs-NET-2.0/CapacitacionMVC
 
-####Ejercicio 1: Pantallas para Películas y Géneros:
-El objetivo del ejercicio es retornar todos los objetos películas de la BD y listarlos en su vista correspondiente.
+####Ejercicio 1: Pantallas para Pel�culas y G�neros:
+El objetivo del ejercicio es retornar todos los objetos pel�culas de la BD y listarlos en su vista correspondiente.
 
-#####1-	Crear el service con el método FindAll:
-Dentro del proyecto Data agregar dos clases llamadas GenreService y MovieService. Cada servicio con un método GetAll retornando una lista de cada entidad:
-```
-public IEnumerable<Genre> GetAll()
-{
-    return this.moviesContext.Genres.AsQueryable();
+ 1) Agregar en la interface IMovieService, el mensaje  IEnumerable<MovieDto> GetAll()
+ 2) Implementarlo en la clase MovieService 
+ 
+   public IEnumerable<MovieDto> GetAll()
+	{
+		return movieRepository.GetAll().Select(x => Map(x));
+	}
+
+	private MovieDto Map(Movie movie) 
+	{
+		return new MovieDto()
+		{
+			Id = movie.Id,
+			Name = movie.Name,
+			ReleaseDate = movie.ReleaseDate,
+			Plot = movie.Plot,
+			CoverLink = movie.CoverLink,
+			Runtime = movie.Runtime,
+			GenresIds = movie.Genres.Select(x => x.Id).ToList()
+		};
+	}
+	
+ 3) Crear La clase interface IGenreService, con el metodo IEnumerable<GenreDto> GetAll() y la clase GenreService con la implementacion correspondiente
+ 
+	public class GenreService : IGenreService
+    {
+        private IRepository<Genre> genreRepository;
+
+        public GenreService(IRepository<Genre> genreRepository)
+        {
+            this.genreRepository = genreRepository;
+        }
+        
+        public IEnumerable<Dtos.Genres.GenreDto> GetAll()
+        {
+            return genreRepository.GetAll().Select(x => Map(x));
+        }
+
+        private GenreDto Map(Genre genre) 
+        {
+            return new GenreDto()
+            {
+                Id = genre.Id,
+                Name = genre.Name
+            };
+        }
+    }
+	
+ 4) 	Crear controllers MoviesController
+ 
+ public class MoviesController : Controller
+    {
+        private readonly IMovieService movieService;
+
+        public MoviesController(IMovieService movieService)
+        {
+            this.movieService = movieService;
+        }
+
+        // GET: Movies
+        public ActionResult Index()
+        {
+            @TempData["MoviesList"] = this.movieService.GetAll();
+            return View();
+        }
+    }
+	
+ 5) Crear controller GenresController
+
+	public class GenresController : Controller
+    {
+        private readonly IGenreService genreService;
+
+        public GenresController(IGenreService genreService)
+        {
+            this.genreService = genreService;
+        }
+
+        // GET: Genres
+        public ActionResult Index()
+        {
+            @TempData["GenreList"] = this.genreService.GetAll();
+            return View();
+        }
+    }
+	
+ 6) Crear Views para Movies y Genres, las mismas deben usar el layout prestablecido
+
+---------------------------------------------------------------------
+MOVIES:
+---------------------------------------------------------------------
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-```
 
-#####2-	Crear ViewModels:
-Dentro de la carpeta Models del proyecto CapacitacionMVC.Web, crear dos clases (MoviesIndexViewModel y GenresIndexViewModel):
-```
-public class MoviesIndexModel
-{
-    public IEnumerable<Movie> Movies { get; set; }
+<section>
 
-    [Display(Name = "Buscar")]
-    public string SearchText { get; set; }
+    <div class="list-group">
+        <table>
+            <thead>
+                <tr>
+                    <th>Pelicula</th>
+                    <th>Portada</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var movie in @TempData["MovieList"] as IEnumerable<HexactaLabs_MVC.Dtos.Movies.MovieDto>)
+                {
+                    <tr>
+                        <td>
+                            @movie.Name
+                        </td>
+                        <td>
+                            <img src="@movie.CoverLink" />  
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    
+</section>
 
-    public Guid? GenreId { get; set; }
+---------------------------------------------------------------
+GENRES
+---------------------------------------------------------------
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-```
+<section>
 
-```
-public class GenresIndexModel
-{
-    public IEnumerable<Genre> Genres { get; set; }
+    <div class="list-group">
+        <table>
+            <thead>
+                <tr>
+                    <th>Generos</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var genre in @TempData["GenreList"] as IEnumerable<HexactaLabs_MVC.Dtos.Genres.GenreDto>)
+                {
+                    <tr>
+                        <td>
+                            @genre.Name
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 
-    [Display(Name = "Buscar")]
-    public string SearchText { get; set; }
-}
-```
+</section>
 
-#####3-	Controller: 
-Dentro de la carpeta Controllers del proyecto CapacitacionMVC.Web, crear dos clases para los controladores de las pantallas (MoviesController y GenresController).
-En el método de la acción Index de cada controlador agregar las llamadas de tal forma que la vista reciba la lista de view models:
+---------------------------------------------------------------
 
-```
-var viewModel = new GenresViewModel();
-viewModel.Genres = genreService.GetAll();
+7) Agregar links a los puntos de menu, en _Layout.cshtml
 
-return View(viewModel);
-```
+	<li class="@(controller == "home" ? "active" : null)"><a href="@Url.Action("Index", "Home")"><span class="glyphicon glyphicon-home"></span></a></li>
+	<li class="@(controller == "genres" ? "active" : null)"><a href="@Url.Action("Index", "Genres")">G�neros</a></li>
+	<li class="@(controller == "movies" ? "active" : null)"><a href="@Url.Action("Index", "Movies")">Pel�culas</a></li>
 
-#####4-	Crear cshtml:
-Agregar en la vista Index (tipada con el viewModel correspondiente) de cada entidad una lista que muestre las distintos registros recuperados de la base:
+
+####Ejercicio 2: Completando el ejemplo anterior agreguemos la posibilidad de buscar por un nombre los g�neros. Realizar lo mismo para las pel�culas.
+
+
+0) Modificar el servicio IMovieService y agregar  IEnumerable<MovieDto> GetByName(string name); 
+1) Implementar el servicio MovieService
+
+       public IEnumerable<MovieDto> GetByName(string name)
+        {
+            if (!string.IsNullOrWhiteSpace(name))
+                return movieRepository.Get(x => x.Name.ToLower().Contains(name.ToLower())).Select(x => Map(x));
+
+            return GetAll();
+        }
+
+2) Agregamos un FilterViewModel en la carpeta Model
+
+    public class FilterViewModel
+    {
+        [Display(Name = "Buscar")]
+        public string Filter { get; set; }
+    }
+
+3) Modificamos el controller MoviesController, agregamos filtro y llamos al servicio que corresponde
+
+	public ActionResult Index(string filter)
+	{
+		@TempData["MovieList"] = this.movieService.GetByName(filter);
+		return View();
+	}	
+
+
+4) Modificamos el Index.cshtml de Movies, agregamos referencia al viewmodel, form y el input
+	
+	@model HexactaLabs_MVC.Models.FilterViewModel
+	
+	@using (Html.BeginForm("Index", "Movies"))
+        {
+            <div> 
+                @Html.TextBoxFor(m => m.Filter)
+                <input type="submit" value="Search" />
+            </div>
+        }
+
+REPETIMOS EL PROCESO PARA GENRES
+5) Modificar el servicio IGenderService y agregar  IEnumerable<GenreDto> GetByName(string name); 
+
+6) Implementar el servicio GenderService
+
+	public IEnumerable<GenreDto> GetByName(string name)
+	{
+		if (!string.IsNullOrWhiteSpace(name))
+			return genreRepository.Get(x => x.Name.ToLower().Contains(name.ToLower())).Select(x => Map(x));
+
+		return GetAll();
+	}
+
+7) Modificamos el controller GenresController, agregamos filtro y llamos al servicio que corresponde
+
+ // GET: Genres
+	public ActionResult Index(string filter)
+	{
+		@TempData["GenreList"] = this.genreService.GetByName(filter);
+		return View();
+	}
+
+8) Modificamos el Index.cshtml de Genres, agregamos el form y el input
+
+	@model HexactaLabs_MVC.Models.FilterViewModel
+
+	@using (Html.BeginForm("Index", "Movies"))
+        {
+            <div> 
+                @Html.TextBoxFor(m => m.Filter)
+                <input type="submit" value="Search" />
+            </div>
+        }
+
+		
+		
+####Ejercicio 3: Completando el ejercicio anterior se pide generar un listado de pel�culas por g�nero. 
+Las mismas deben aparecer cuando se hace click en un g�nero.
+//Debe tener un estilo diferente al de g�neros (agregar un layout diferente en cada caso).
+ 
+1) 	Modificar el Index de los g�neros de tal forma que el nombre sea un link:
 
 ```
 <div class="list-group">
     @foreach (var genre in Model.Genres)
     {
-        @genre.Name
+        @Html.ActionLink(genre.Name, "Index", "Movies", new { genreId = genre.Id }, new {  })
     }
 </div>
-```
 
-####Ejercicio 2: Completando el ejemplo anterior agreguemos la posibilidad de buscar por un nombre los géneros. Realizar lo mismo para las películas.
-#####1-	Agregarle un parámetro a la acción Index llamado “filtro (string?)” (puede ser null) que reciba el valor ingresado por el usuario.
-#####2-	Modificar el método GetAll de GenreService para que reciba el filtro correspondiente y realice la búsqueda de los géneros:
+2) Para que el filtro siga funcionando tenemos que extender el viewmodel, entonces creamos MovieSearchViewModel
 
-```
-public List<Genre> GetAll(string searchText)
-{
-    var genres = this.moviesContext.Genres.AsQueryable();
-
-    if (searchText != null)
+	public class MovieSearchViewModel : FilterViewModel
     {
-        genres = genres.Where(w => w.Name.ToLower().Contains(searchText.ToLower()));
+        public int? GenreId { get; set; }
     }
 
-    return genres.ToList();
+3) Modificamos el MoviesController
+
+ // GET: Movies
+        public ActionResult Index(int? genreId, string filter)
+        {
+            @TempData["MovieList"] = this.movieService.GetBy(filter, genreId);
+
+            return View(new MovieSearchViewModel() { GenreId = genreId, Filter = filter });
+        }
+		
+ 4) Agregamos un hidden en Index de movies para mantener el genero seleccionado
+ 
+      @Html.HiddenFor(m => m.GenreId)
+	  
+ 5) Modificamos los servicios, MovieServices
+ 
+		public IEnumerable<MovieDto> GetBy(string name, int? genreId)
+        {
+                return movieRepository.Get(x => 
+                            ((name == null) ||  (name!=null && x.Name.ToLower().Contains(name.ToLower()))) &&
+                            (!genreId.HasValue || genreId.HasValue && x.Genres.Any(g => g.Id == genreId.Value))
+                    
+                 ).Select(x => Map(x));
+        }
+
+		
+
+####Ejercicio 4: Para finalizar el ejercicio agregar al mismo la posibilidad de ver los detalles de una pel�cula. 
+Utilizar display templates para mostrar y formatear las diferentes secciones:
+
+1) Crear la vista Detail, bajo la carpeta Movies
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
-```
+@model HexactaLabs_MVC.Dtos.Movies.MovieDto
 
-####Ejercicio 3: Completando el ejercicio anterior se pide generar un listado de películas por género. La misma debe aparecer cuando se hace click en un género. Debe tener un estilo diferente al de géneros (agregar un layout diferente en cada caso). 
-#####1-	Modificar el Index de los géneros de tal forma que el nombre sea un link:
+<section>
+    <div>
+        @Html.DisplayFor(m => m.Name)
+    </div>
+    <div>
+        @Html.DisplayFor(m => m.Plot)
+    </div>
+    <div>
+        @Html.DisplayFor(m => m.ReleaseDate)
+    </div>
+    <div>
+        @Html.DisplayFor(m => m.Runtime)
+    </div>
+    <div>
+        <img src="@Model.CoverLink" /> 
+    </div>
+ 
+</section>
 
-```
-<div class="list-group">
-    @foreach (var genre in Model.Genres)
-    {
-        @Html.ActionLink(genre.Name, "Index", "Movies", new { genreId = genre.Id }, new { @class = "list-group-item" })
-    }
-</div>
-```
+2) Agregar el ActionLink en la vista  Index de Movies
 
-#####2-	Modificar la acción Index del controlador de películas para que reciba el id de un género.
-#####3-	Modificar el método GetAll de MovieService para que realice un filtro por el id del género.
-Ejercicio 4: Para finalizar el ejercicio agregar al mismo la posibilidad de ver los detalles de una película. Utilizar display templates para mostrar y formatear las diferentes secciones:
-#####4-	Agregar nuevas propiedades a la clase Movie.
-#####5-	Mostrar en la nueva vista el detalle de la película utilizando DisplayFor
-#####6-	Modificar la vista Index de la carpeta Movie de forma tal que cada película muestre un link llamado “Detalle” que llame a la acción Details del controlador para mostrar al detalle de la misma (se pasa el Id como parámetro).
-#####7-	Agregar a MovieService un nuevo método GetById que recupere una película a partir de su Id:
+ @Html.ActionLink(movie.Name, "Detail", "Movies", new { id = @movie.Id }, new { })
+ 
+ 3) Agregar action Detail al controlador, que reciba como parametro el id
+ //Consumir el servicio que ya existe
+ 
+         public ActionResult Detail(int id)
+        {
+            var movie = movieService.GetMovie(id);
 
-```
- public Movie GetById(Guid id)
-{
-    return this.moviesContext.Movies.FirstOrDefault(f => f.Id == id);
-}
-```
+            return View(movie);
+        }
 
-#####8-	Agregar una nueva acción en el controlador de películas llamada Details que reciba el Id de una película y muestre su detalle:
-
-```
- public ActionResult Details(Guid id)
-{
-    var movie = this.movieService.GetById(id);
-
-    return this.View(new MoviesDetailsModel { Movie = movie });
-}
-```
-
-#####9-	Agregar una nueva vista en la carpeta Movies llamada Details (vista tipada con el modelo MoviesDetailsModel)
-
-
-
-
+//ACLARAR DE QUE SE PUEDE CREAR LA CLASE EstimationViewModel, en lugar de usar como model el dto		
