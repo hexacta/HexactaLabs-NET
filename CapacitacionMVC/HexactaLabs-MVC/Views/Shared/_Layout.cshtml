@@ -44,6 +44,13 @@
 
                 <br />
             }
+            
+            @if (TempData["errormessage"] != null)
+            {
+                <div class="alert alert-danger">@TempData["errormessage"]</div>
+
+                <br />
+            }
 
             @RenderBody()
         </div>
