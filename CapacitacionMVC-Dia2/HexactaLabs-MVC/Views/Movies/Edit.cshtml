@@ -1,0 +1,73 @@
+﻿@model HexactaLabs_MVC.Models.MovieViewModel
+
+@{
+    ViewBag.Title = "Editar Película";
+}
+
+<h2>Editar</h2>
+
+@using (Html.BeginForm("Edit","Movies",FormMethod.Post))
+{
+    <div>
+
+         @Html.HiddenFor(model => model.Id)
+
+        <div>
+            @Html.LabelFor(model => model.Name)
+            <div>
+                @Html.EditorFor(model => model.Name)
+                @Html.ValidationMessageFor(model => model.Name, "")
+            </div>
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.ReleaseDate)
+            <div>
+                @Html.EditorFor(model => model.ReleaseDate)
+                @Html.ValidationMessageFor(model => model.ReleaseDate, "")
+            </div>
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.Plot)
+            <div>
+                @Html.EditorFor(model => model.Plot)
+                @Html.ValidationMessageFor(model => model.Plot, "")
+            </div>
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.CoverLink)
+            <div>
+                @Html.EditorFor(model => model.CoverLink)
+                @Html.ValidationMessageFor(model => model.CoverLink, "")
+            </div>
+        </div>
+
+        <div>
+            @Html.LabelFor(model => model.Runtime)
+            <div>
+                @Html.EditorFor(model => model.Runtime)
+                @Html.ValidationMessageFor(model => model.Runtime, "")
+            </div>
+        </div>
+
+        <div>
+            <label>Géneros</label>
+            <div>
+                @Html.ListBox("selectedGenres", ((IEnumerable<HexactaLabs_MVC.Dtos.Genres.GenreDto>)ViewBag.Genres).Select(s => new SelectListItem() { Text = s.Name, Value = s.Id.ToString(), Selected = Model.Genres.Any(a => a == s.Id) }))
+            </div>
+
+        </div>
+
+        <div>
+            <div>
+                <input type="submit" value="Guardar" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Volver a la lista", "Index")
+</div>

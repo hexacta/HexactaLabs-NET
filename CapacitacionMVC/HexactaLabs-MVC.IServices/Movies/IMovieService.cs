@@ -10,5 +10,11 @@ namespace HexactaLabs_MVC.IServices.Movies
     public interface IMovieService
     {
         MovieDto GetMovie(int id);
+
+        void Create(MovieDto movie);
+
+        void Edit(MovieDto movieDto);
+
+        void Delete(int id);
     }
 }

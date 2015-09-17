@@ -14,5 +14,11 @@ namespace HexactaLabs_MVC.IServices.Movies
         IEnumerable<MovieDto> GetAll();
 
         IEnumerable<MovieDto> GetBy(string name, int? genreId);
+
+        void Create(MovieDto movie);
+
+        void Edit(MovieDto movieDto);
+
+        void Delete(int id);
     }
 }

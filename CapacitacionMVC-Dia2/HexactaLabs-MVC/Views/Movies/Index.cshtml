@@ -1,0 +1,43 @@
+﻿@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model HexactaLabs_MVC.Models.MovieSearchViewModel
+<section>
+    <div>
+        @Html.ActionLink("Nueva", "Create", "Movies")
+    </div>
+
+    @using (Html.BeginForm("Index", "Movies"))
+    {
+        <div>
+            @Html.HiddenFor(m => m.GenreId)
+            @Html.TextBoxFor(m => m.Filter)
+            <input type="submit" value="Search" />
+        </div>
+    }
+        
+    <div class="list-group">
+        <table>
+            <thead>
+                <tr>
+                    <th>Pelicula</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var movie in @TempData["MovieList"] as IEnumerable<HexactaLabs_MVC.Dtos.Movies.MovieDto>)
+                {
+                    <tr>
+                        <td>
+                             @Html.ActionLink(movie.Name, "Detail", "Movies", new { id = @movie.Id }, new { })
+                        </td>
+                        <td>
+                            @Html.ActionLink("Editar", "Edit", "Movies", new { id = @movie.Id }, new { }) | @Html.ActionLink("Eliminar", "Delete", "Movies", new { id = @movie.Id }, new { })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    
+</section>

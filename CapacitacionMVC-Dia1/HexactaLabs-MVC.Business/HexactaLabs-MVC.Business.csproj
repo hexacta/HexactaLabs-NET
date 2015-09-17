@@ -42,6 +42,7 @@
     <Compile Include="Common\IRepository.cs" />
     <Compile Include="Genres\Genre.cs" />
     <Compile Include="Movies\Movie.cs" />
+    <Compile Include="Movies\MovieCreator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
