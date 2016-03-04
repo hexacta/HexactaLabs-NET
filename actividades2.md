@@ -9,7 +9,7 @@ Hexacta Labs: .NET MVC - Segunda parte
 ```
 public ActionResult Create()
 {
-   return this.View(new MoviesCreateModel() { ViewAction = ViewAction.Create, Movie = new Movie()});
+   return this.View(new MoviesCreateModel() { ViewAction = ViewAction.Create, Movie = new MovieVM()});
 }
 ```
 
@@ -19,11 +19,20 @@ public ActionResult Create()
 
 ```
 [HttpPost]
-public ActionResult Create(Movie movie)
+public ActionResult Create(MovieVM movie)
 {            
     if (this.ModelState.IsValid)
     {
-        this.movieService.AddMovie(movie);
+    	var newMovieDb = new Movie();
+    	newMovieDb.Name = movie.Name;
+    	newMovieDb.ReleaseDate = movie.ReleaseDate;
+    	newMovieDb.Plot = movie.Plot;
+    	newMovieDb.CoverLink = movie.CoverLink;
+    	newMovieDb.Runtime = movie.Runtime;
+    	
+    	this.movieService.AddMovie(newMovieDb);
+    	
+    	movie.AsViewModel(newMovieDb);
     }
 
     return this.View(new MoviesCreateModel() { ViewAction = ViewAction.Create, Movie = movie});
@@ -62,16 +71,17 @@ this.TempData["successmessage"] = "Se ha agregado exitosamente la pelicula: " + 
 public ActionResult Edit(Guid id)
 {
     var movie = this.movieService.GetMovieById(id);
-
-    return this.View("Create", new MoviesCreateModel() { ViewAction = ViewAction.Edit, Movie = movie });
+    var vm = new MovieVM();
+    vm.AsViewModel(movie);
+    return this.View("Create", new MoviesCreateModel() { ViewAction = ViewAction.Edit, Movie = vm });
 }
 ```
 
 
-#####2- El formulario en este caso debe ir por POST a la acción Edit del controlado:
+#####2- El formulario en este caso debe ir por POST a la acción Edit del controlador:
 ```
 [HttpPost]
-public ActionResult Edit(Movie movie)
+public ActionResult Edit(MovieVM movie)
 {
     if (this.ModelState.IsValid)
     {
@@ -155,8 +165,6 @@ $.ajax({
 --
 --
 
-
-####Ejercicio 7: Aplicar Bootstrap al diseño
 
 
 
