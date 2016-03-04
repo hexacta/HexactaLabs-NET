@@ -44,10 +44,10 @@ public ActionResult Create(MovieVM movie)
 
 ####Ejercicio 2: Agregar validaciones al alta de películas:
 
-#####A Campos requeridos: Name, ReleaseDate, Plot, CoverLink y Runtime.
-#####B ReleaseDate tiene que ser una fecha valida.
-#####C El rango valido de valores para Runtime es de 30 a 300. 
-#####D El campo Name solo permite 100 caracteres. 
+#####A- Campos requeridos: Name, ReleaseDate, Plot, CoverLink y Runtime.
+#####B- ReleaseDate tiene que ser una fecha valida.
+#####C- El rango valido de valores para Runtime es de 30 a 300. 
+#####D- El campo Name solo permite 100 caracteres. 
 
 --
 --
