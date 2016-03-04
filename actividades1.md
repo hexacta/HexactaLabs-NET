@@ -9,18 +9,40 @@ El objetivo del ejercicio es retornar todos los objetos películas de la BD y li
 #####1-	Crear el service con el método FindAll:
 Dentro del proyecto Data agregar dos clases llamadas GenreService y MovieService. Cada servicio con un método GetAll retornando una lista de cada entidad:
 ```
-public IEnumerable<Genre> GetAll()
+public IEnumerable<Movie> GetAll()
 {
-    return this.moviesContext.Genres.AsQueryable();
+    return this.moviesContext.Movies.AsQueryable();
 }
 ```
 
 #####2-	Crear ViewModels:
-Dentro de la carpeta Models del proyecto CapacitacionMVC.Web, crear dos clases (MoviesIndexViewModel y GenresIndexViewModel):
+Dentro de la carpeta Models del proyecto CapacitacionMVC.Web, crear dos clases (MovieVM y GenreVM):
+```
+public class MovieVM
+{
+    public Guid Id { get; set; }
+    public string Name { get; set; }
+    public DateTime ReleaseDate { get; set; }
+    public string Plot { get; set; }
+    public string CoverLink { get; set; }
+    public int Runtime { get; set; }
+    
+    public void AsViewModel(Movie movie)
+    {
+        this.id = movie.id;
+        this.Name = movie.Name;
+        this.ReleaseDate = movie.ReleaseDate;
+        this.Plot = movie.Plot;
+        this.CoverLink = movie.CoverLink;
+        this.Runtime = movie.Runtime;
+    }
+}
+```
+Además es necesario crear dos clases view model (MoviesIndexViewModel y GenresIndexViewModel) que servirán de contenedor para los view model creados en el paso anterior:
 ```
 public class MoviesIndexModel
 {
-    public IEnumerable<Movie> Movies { get; set; }
+    public List<MovieVM> Movies { get; set; }
 
     [Display(Name = "Buscar")]
     public string SearchText { get; set; }
@@ -29,23 +51,23 @@ public class MoviesIndexModel
 }
 ```
 
-```
-public class GenresIndexModel
-{
-    public IEnumerable<Genre> Genres { get; set; }
-
-    [Display(Name = "Buscar")]
-    public string SearchText { get; set; }
-}
-```
-
 #####3-	Controller: 
 Dentro de la carpeta Controllers del proyecto CapacitacionMVC.Web, crear dos clases para los controladores de las pantallas (MoviesController y GenresController).
 En el método de la acción Index de cada controlador agregar las llamadas de tal forma que la vista reciba la lista de view models:
 
 ```
-var viewModel = new GenresViewModel();
-viewModel.Genres = genreService.GetAll();
+var viewModel = new MoviesViewModel();
+var movies = movieService.GetAll();
+var moviesVMs = new List<MoviesVM>();
+
+foreach(var m in movies)
+{
+    var vm = new MovieVM();
+    vm.AsViewModel(m);
+    moviesVMs.Add(vm);
+}
+
+viewModel.Movies = moviesVMs;
 
 return View(viewModel);
 ```
@@ -55,28 +77,28 @@ Agregar en la vista Index (tipada con el viewModel correspondiente) de cada enti
 
 ```
 <div class="list-group">
-    @foreach (var genre in Model.Genres)
+    @foreach (var movie in Model.Movies)
     {
-        @genre.Name
+        @movie.Name
     }
 </div>
 ```
 
-####Ejercicio 2: Completando el ejemplo anterior agreguemos la posibilidad de buscar por un nombre los géneros. Realizar lo mismo para las películas.
+####Ejercicio 2: Completando el ejemplo anterior agreguemos la posibilidad de buscar por un nombre las películas. Realizar lo mismo para las géneros.
 #####1-	Agregarle un parámetro a la acción Index llamado “filtro (string?)” (puede ser null) que reciba el valor ingresado por el usuario.
-#####2-	Modificar el método GetAll de GenreService para que reciba el filtro correspondiente y realice la búsqueda de los géneros:
+#####2-	Modificar el método GetAll de MovieService para que reciba el filtro correspondiente y realice la búsqueda de las películas:
 
 ```
-public List<Genre> GetAll(string searchText)
+public List<Movie> GetAll(string searchText)
 {
-    var genres = this.moviesContext.Genres.AsQueryable();
+    var movies = this.moviesContext.Movies.AsQueryable();
 
     if (searchText != null)
     {
-        genres = genres.Where(w => w.Name.ToLower().Contains(searchText.ToLower()));
+        movies = movies.Where(w => w.Name.ToLower().Contains(searchText.ToLower()));
     }
 
-    return genres.ToList();
+    return movies.ToList();
 }
 ```
 
