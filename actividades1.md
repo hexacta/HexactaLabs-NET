@@ -26,15 +26,47 @@ public class MovieVM
     public string Plot { get; set; }
     public string CoverLink { get; set; }
     public int Runtime { get; set; }
+    public virtual ICollection<Genre> Genres { get; set; }
     
-    public void AsViewModel(Movie movie)
+    public MovieVM()
     {
-        this.id = movie.id;
+        this.Genres = new List<Genre>();
+    }
+    
+     public MovieVM(Movie movie)
+    {
+        this.Id = movie.Id;
         this.Name = movie.Name;
         this.ReleaseDate = movie.ReleaseDate;
         this.Plot = movie.Plot;
         this.CoverLink = movie.CoverLink;
         this.Runtime = movie.Runtime;
+        this.Genres = movie.Genres;
+    }
+    
+    public void AsViewModel(Movie movie)
+    {
+        this.Id = movie.Id;
+        this.Name = movie.Name;
+        this.ReleaseDate = movie.ReleaseDate;
+        this.Plot = movie.Plot;
+        this.CoverLink = movie.CoverLink;
+        this.Runtime = movie.Runtime;
+        this.Genres = movie.Genres;
+    }
+    
+    public Movie GetEntityModel()
+    {
+        return new Movie    
+        {
+            Id = this.Id,
+            Name = this.Name,
+            ReleaseDate = this.ReleaseDate,
+            Plot = this.Plot,
+            CoverLink = this.CoverLink,
+            Runtime = this.Runtime,
+            Genres = this.Genres
+        };
     }
 }
 ```
