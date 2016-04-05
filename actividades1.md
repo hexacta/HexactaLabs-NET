@@ -90,7 +90,7 @@ En el método de la acción Index de cada controlador agregar las llamadas de ta
 ```
 var viewModel = new MoviesIndexModel();
 var movies = movieService.GetAll();
-var moviesVMs = new List<MoviesVM>();
+var moviesVMs = new List<MovieVM>();
 
 foreach(var m in movies)
 {
