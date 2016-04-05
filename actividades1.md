@@ -22,10 +22,10 @@ public class MovieVM
 {
     public Guid Id { get; set; }
     public string Name { get; set; }
-    public DateTime ReleaseDate { get; set; }
+    public DateTime? ReleaseDate { get; set; }
     public string Plot { get; set; }
     public string CoverLink { get; set; }
-    public int Runtime { get; set; }
+    public int? Runtime { get; set; }
     public virtual ICollection<Genre> Genres { get; set; }
     
     public MovieVM()
@@ -48,10 +48,10 @@ public class MovieVM
     {
         this.Id = movie.Id;
         this.Name = movie.Name;
-        this.ReleaseDate = movie.ReleaseDate.Value;
+        this.ReleaseDate = movie.ReleaseDate;
         this.Plot = movie.Plot;
         this.CoverLink = movie.CoverLink;
-        this.Runtime = movie.Runtime.Value;
+        this.Runtime = movie.Runtime;
         this.Genres = movie.Genres;
     }
     
@@ -61,10 +61,10 @@ public class MovieVM
         {
             Id = this.Id,
             Name = this.Name,
-            ReleaseDate = this.ReleaseDate.Value,
+            ReleaseDate = this.ReleaseDate,
             Plot = this.Plot,
             CoverLink = this.CoverLink,
-            Runtime = this.Runtime.Value,
+            Runtime = this.Runtime,
             Genres = this.Genres
         };
     }
