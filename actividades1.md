@@ -48,10 +48,10 @@ public class MovieVM
     {
         this.Id = movie.Id;
         this.Name = movie.Name;
-        this.ReleaseDate = movie.ReleaseDate;
+        this.ReleaseDate = movie.ReleaseDate.Value;
         this.Plot = movie.Plot;
         this.CoverLink = movie.CoverLink;
-        this.Runtime = movie.Runtime;
+        this.Runtime = movie.Runtime.Value;
         this.Genres = movie.Genres;
     }
     
@@ -61,10 +61,10 @@ public class MovieVM
         {
             Id = this.Id,
             Name = this.Name,
-            ReleaseDate = this.ReleaseDate,
+            ReleaseDate = this.ReleaseDate.Value,
             Plot = this.Plot,
             CoverLink = this.CoverLink,
-            Runtime = this.Runtime,
+            Runtime = this.Runtime.Value,
             Genres = this.Genres
         };
     }
@@ -88,7 +88,7 @@ Dentro de la carpeta Controllers del proyecto CapacitacionMVC.Web, crear dos cla
 En el método de la acción Index de cada controlador agregar las llamadas de tal forma que la vista reciba la lista de view models:
 
 ```
-var viewModel = new MoviesViewModel();
+var viewModel = new MoviesIndexModel();
 var movies = movieService.GetAll();
 var moviesVMs = new List<MoviesVM>();
 
