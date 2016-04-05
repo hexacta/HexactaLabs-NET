@@ -9,7 +9,7 @@ El objetivo del ejercicio es retornar todos los objetos películas de la BD y li
 #####A-	Crear el service con el método FindAll:
 Dentro del proyecto Data agregar dos clases llamadas GenreService y MovieService. Cada servicio con un método GetAll retornando una lista de cada entidad:
 ```
-public IEnumerable<Movie> GetAll()
+public IEnumerable<Movie> GetMovies()
 {
     return this.moviesContext.Movies.AsQueryable();
 }
@@ -121,13 +121,13 @@ Agregar en la vista Index (tipada con el viewModel correspondiente) de cada enti
 #####B-	Modificar el método GetAll de MovieService para que reciba el filtro correspondiente y realice la búsqueda de las películas:
 
 ```
-public List<Movie> GetAll(string searchText)
+public List<Movie> GetMovies(string nameFilter)
 {
     var movies = this.moviesContext.Movies.AsQueryable();
 
-    if (searchText != null)
+    if (nameFilter != null)
     {
-        movies = movies.Where(w => w.Name.ToLower().Contains(searchText.ToLower()));
+        movies = movies.Where(w => w.Name.ToLower().Contains(nameFilter.ToLower()));
     }
 
     return movies.ToList();
