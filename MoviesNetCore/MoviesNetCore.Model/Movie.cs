@@ -10,7 +10,7 @@ namespace MoviesNetCore.Model
             this.Genres = new HashSet<Genre>();
         }
 
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         public string Name { get; set; }
 
