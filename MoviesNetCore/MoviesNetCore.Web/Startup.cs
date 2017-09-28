@@ -26,7 +26,7 @@ namespace MoviesNetCore.Web
             services.AddMvc();
 
             services.AddDbContext<DatabaseContext>(options =>
-            options.UseSqlite("Data Source=MoviesNetCore.db"));
+            options.UseSqlite("Data Source=../MoviesNetCore.Repository/MoviesNetCore.db"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
