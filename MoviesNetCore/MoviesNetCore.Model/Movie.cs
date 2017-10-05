@@ -7,7 +7,7 @@ namespace MoviesNetCore.Model
     {
         public Movie()
         {
-            this.Genres = new HashSet<Genre>();
+            this.MovieGenres = new List<MovieGenre>();
         }
 
         public int Id { get; set; }
@@ -22,6 +22,6 @@ namespace MoviesNetCore.Model
 
         public int? Runtime { get; set; }
 
-        public virtual ICollection<Genre> Genres { get; set; }
+        public virtual IList<MovieGenre> MovieGenres { get; set; }
     }
 }

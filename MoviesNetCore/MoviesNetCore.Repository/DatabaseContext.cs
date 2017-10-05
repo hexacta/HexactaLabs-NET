@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using MoviesNetCore.Model;
 
 namespace MoviesNetCore.Repository
 {
@@ -9,6 +10,15 @@ namespace MoviesNetCore.Repository
         {
         }
 
-        public DbSet<MoviesNetCore.Model.Movie> Movie { get; set; }
+        public DbSet<Movie> Movies { get; set; }
+
+        public DbSet<Genre> Genres { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder
+                .Entity<MovieGenre>()
+                .HasKey(x => new { x.MovieId, x.GenreId });
+        }
     }
 }

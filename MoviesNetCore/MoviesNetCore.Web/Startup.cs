@@ -23,10 +23,12 @@ namespace MoviesNetCore.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<DatabaseContext>(options =>
+                options.UseSqlite("Data Source=../MoviesNetCore.Repository/MoviesNetCore.db"));
+
             services.AddMvc();
 
-            services.AddDbContext<DatabaseContext>(options =>
-            options.UseSqlite("Data Source=../MoviesNetCore.Repository/MoviesNetCore.db"));
+            services.AddScoped<IMovieRepository, MovieRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

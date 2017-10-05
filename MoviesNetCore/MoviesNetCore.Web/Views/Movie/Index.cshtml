@@ -1,0 +1,10 @@
+@model System.Collections.Generic.IEnumerable<MoviesNetCore.Model.Movie>
+@{
+    ViewData["Title"] = "Películas";
+}
+<ul>
+    @foreach(var movie in Model)
+    {
+        <li>@movie.Name</li>
+    }
+</ul>
