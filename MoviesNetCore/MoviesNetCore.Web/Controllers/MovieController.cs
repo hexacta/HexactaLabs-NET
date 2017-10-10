@@ -22,6 +22,23 @@ namespace MoviesNetCore.Web.Controllers
             return this.View(model);
         }
 
+        public ActionResult Delete(int id)
+        {
+            var movie = this.movieRepository.Get(id);
+
+            var model = this.CreateViewModel(movie);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(MovieViewModel model)
+        {
+            this.movieRepository.Delete(model.Id);
+
+            return this.RedirectToAction("Index", "Movie");
+        }
+
         private IList<MovieViewModel> CreateViewModel(IEnumerable<Movie> movies)
         {
             var moviesList = new List<MovieViewModel>();

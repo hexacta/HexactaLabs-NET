@@ -13,14 +13,24 @@ namespace MoviesNetCore.Repository
             this.db = db;
         }
 
-        public void Delete(Movie movie)
+        public void Delete(int id)
         {
-            throw new System.NotImplementedException();
+            var movie = this.Get(id);
+
+            this
+                .db
+                .Movies
+                .Remove(movie);
+                
+            this.db.SaveChanges();
         }
 
         public Movie Get(int id)
         {
-            throw new System.NotImplementedException();
+            return this
+                .db
+                .Movies
+                .Find(id);
         }
 
         public IEnumerable<Movie> List()

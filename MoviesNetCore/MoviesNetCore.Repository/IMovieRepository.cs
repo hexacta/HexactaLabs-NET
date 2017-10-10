@@ -11,6 +11,6 @@ namespace MoviesNetCore.Repository
 
         void Update(Movie movie);
 
-        void Delete(Movie movie);
+        void Delete(int id);
     }
 }

@@ -13,7 +13,7 @@ namespace MoviesNetCore.Repository
             this.db = db;
         }
 
-        public void Delete(Genre movie)
+        public void Delete(int id)
         {
             throw new System.NotImplementedException();
         }
@@ -31,7 +31,7 @@ namespace MoviesNetCore.Repository
                 .AsEnumerable();
         }
 
-        public void Update(Genre movie)
+        public void Update(Genre genre)
         {
             throw new System.NotImplementedException();
         }
