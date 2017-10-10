@@ -41,9 +41,16 @@ namespace MoviesNetCore.Repository
                 .AsEnumerable();
         }
 
+        public void Add(Movie movie)
+        {           
+            this.db.Movies.Add(movie);   
+            this.db.SaveChanges();      
+        }
+
         public void Update(Movie movie)
         {
-            throw new System.NotImplementedException();
+            this.db.Movies.Update(movie);
+            this.db.SaveChanges();      
         }
     }
 }

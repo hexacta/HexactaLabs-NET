@@ -22,12 +22,38 @@ namespace MoviesNetCore.Web.Controllers
             return this.View(model);
         }
 
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(MovieViewModel movieViewModel)
+        {            
+            if (ModelState.IsValid)
+            {
+                Movie movie = this.CreateMovieModel(movieViewModel);
+
+                this.movieRepository.Add(movie);
+
+                return RedirectToAction("Index", "Movie");
+            }
+
+            return View(movieViewModel);
+        }
+
+        public ActionResult Edit(string id)
+        {            
+            Movie movie = this.movieRepository.Get(int.Parse(id));
+
+            MovieViewModel model = this.CreateViewModel(movie);
+            return View(model);
+        }
+
         public ActionResult Delete(int id)
         {
             var movie = this.movieRepository.Get(id);
-
             var model = this.CreateViewModel(movie);
-
             return View(model);
         }
 
@@ -35,8 +61,21 @@ namespace MoviesNetCore.Web.Controllers
         public ActionResult Delete(MovieViewModel model)
         {
             this.movieRepository.Delete(model.Id);
-
             return this.RedirectToAction("Index", "Movie");
+        }
+
+        public ActionResult Edit(MovieViewModel movieViewModel)
+        {
+           if (ModelState.IsValid)
+            {
+                Movie movie = this.CreateMovieModel(movieViewModel);
+                movie.Id = movieViewModel.Id;
+                this.movieRepository.Update(movie);
+
+                return RedirectToAction("Index", "Movie");
+            }
+            
+            return View(movieViewModel);
         }
 
         private IList<MovieViewModel> CreateViewModel(IEnumerable<Movie> movies)
@@ -47,8 +86,8 @@ namespace MoviesNetCore.Web.Controllers
             {
                 MovieViewModel model = this.CreateViewModel(item);
                 moviesList.Add(model);
-
             }
+
             return moviesList;
         }
 
@@ -65,5 +104,19 @@ namespace MoviesNetCore.Web.Controllers
 
             return movieViewModel;
         }
+        
+        private Movie CreateMovieModel(MovieViewModel movieViewModel)
+        {
+            Movie movie = new Movie();
+
+            movie.CoverLink = movieViewModel.CoverLink;
+            movie.Name = movieViewModel.Name;
+            movie.Plot = movieViewModel.Plot;
+            movie.ReleaseDate = movieViewModel.ReleaseDate;
+            movie.Runtime = movieViewModel.Runtime;
+            return movie;
+        }
+
+        
     }
 }

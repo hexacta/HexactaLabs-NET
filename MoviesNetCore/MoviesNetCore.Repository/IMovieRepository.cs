@@ -9,6 +9,8 @@ namespace MoviesNetCore.Repository
 
         IEnumerable<Movie> List();
 
+        void Add(Movie movie);
+        
         void Update(Movie movie);
 
         void Delete(int id);
