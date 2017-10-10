@@ -1,10 +1,56 @@
-@model System.Collections.Generic.IEnumerable<MoviesNetCore.Model.Movie>
+@model IEnumerable<MoviesNetCore.Web.Models.MovieViewModel>
+
 @{
-    ViewData["Title"] = "Películas";
+    ViewBag.Title = "Listado de Películas";
 }
-<ul>
-    @foreach(var movie in Model)
-    {
-        <li>@movie.Name</li>
-    }
-</ul>
+
+<h2>Listado de Películas</h2>
+
+<p>
+    @Html.ActionLink("Agregar Película", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Plot)
+        </th>
+        <th>
+            @Html.Label("Portada")
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Runtime)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ReleaseDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Plot)
+        </td>
+        <td>
+            <img style=" width: 150px" src="@item.CoverLink" alt="Alternate Text" /> 
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Runtime)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Borrar", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

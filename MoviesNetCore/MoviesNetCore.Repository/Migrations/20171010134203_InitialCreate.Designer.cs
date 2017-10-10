@@ -11,7 +11,7 @@ using System;
 namespace MoviesNetCore.Repository.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20171005200327_InitialCreate")]
+    [Migration("20171010134203_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -22,7 +22,7 @@ namespace MoviesNetCore.Repository.Migrations
 
             modelBuilder.Entity("MoviesNetCore.Model.Genre", b =>
                 {
-                    b.Property<Guid>("Id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Name");
@@ -58,11 +58,9 @@ namespace MoviesNetCore.Repository.Migrations
 
                     b.Property<int>("GenreId");
 
-                    b.Property<Guid?>("GenreId1");
-
                     b.HasKey("MovieId", "GenreId");
 
-                    b.HasIndex("GenreId1");
+                    b.HasIndex("GenreId");
 
                     b.ToTable("MovieGenre");
                 });
@@ -71,7 +69,8 @@ namespace MoviesNetCore.Repository.Migrations
                 {
                     b.HasOne("MoviesNetCore.Model.Genre", "Genre")
                         .WithMany("MovieGenres")
-                        .HasForeignKey("GenreId1");
+                        .HasForeignKey("GenreId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("MoviesNetCore.Model.Movie", "Movie")
                         .WithMany("MovieGenres")

@@ -10,7 +10,7 @@ namespace MoviesNetCore.Model
             this.MovieGenres = new List<MovieGenre>();
         }
 
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         public string Name { get; set; }
 

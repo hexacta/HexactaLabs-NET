@@ -12,7 +12,8 @@ namespace MoviesNetCore.Repository.Migrations
                 name: "Genres",
                 columns: table => new
                 {
-                    Id = table.Column<Guid>(type: "BLOB", nullable: false),
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
                     Name = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
@@ -42,18 +43,17 @@ namespace MoviesNetCore.Repository.Migrations
                 columns: table => new
                 {
                     MovieId = table.Column<int>(type: "INTEGER", nullable: false),
-                    GenreId = table.Column<int>(type: "INTEGER", nullable: false),
-                    GenreId1 = table.Column<Guid>(type: "BLOB", nullable: true)
+                    GenreId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_MovieGenre", x => new { x.MovieId, x.GenreId });
                     table.ForeignKey(
-                        name: "FK_MovieGenre_Genres_GenreId1",
-                        column: x => x.GenreId1,
+                        name: "FK_MovieGenre_Genres_GenreId",
+                        column: x => x.GenreId,
                         principalTable: "Genres",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_MovieGenre_Movies_MovieId",
                         column: x => x.MovieId,
@@ -63,9 +63,9 @@ namespace MoviesNetCore.Repository.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_MovieGenre_GenreId1",
+                name: "IX_MovieGenre_GenreId",
                 table: "MovieGenre",
-                column: "GenreId1");
+                column: "GenreId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)

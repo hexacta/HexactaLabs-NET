@@ -1,5 +1,9 @@
+using System;
+using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
+using MoviesNetCore.Model;
 using MoviesNetCore.Repository;
+using MoviesNetCore.Web.Models;
 
 namespace MoviesNetCore.Web.Controllers
 {
@@ -14,7 +18,35 @@ namespace MoviesNetCore.Web.Controllers
         public IActionResult Index()
         {
             var movies = this.movieRepository.List();
-            return this.View(movies);
+            var model = this.CreateViewModel(movies);
+            return this.View(model);
+        }
+
+        private IList<MovieViewModel> CreateViewModel(IEnumerable<Movie> movies)
+        {
+            var moviesList = new List<MovieViewModel>();
+
+            foreach (var item in movies)
+            {
+                MovieViewModel model = this.CreateViewModel(item);
+                moviesList.Add(model);
+
+            }
+            return moviesList;
+        }
+
+        private MovieViewModel CreateViewModel(Movie item)
+        {
+            var movieViewModel = new MovieViewModel();
+
+            movieViewModel.Id = item.Id;
+            movieViewModel.Name = item.Name;
+            movieViewModel.Plot = item.Plot;
+            movieViewModel.ReleaseDate = item.ReleaseDate;
+            movieViewModel.Runtime = item.Runtime;
+            movieViewModel.CoverLink = item.CoverLink;
+
+            return movieViewModel;
         }
     }
 }
