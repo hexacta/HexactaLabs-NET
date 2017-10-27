@@ -7,7 +7,7 @@
         {
             "taskName": "build",
             "args": [
-                "${workspaceRoot}/MoviesNetCore.Web/MoviesNetCore.Model.csproj"
+                "${workspaceRoot}/MoviesNetCore.Model/MoviesNetCore.Model.csproj"
             ],
             "isBuildCommand": true,
             "problemMatcher": "$msCompile"
@@ -15,7 +15,7 @@
         {
             "taskName": "build",
             "args": [
-                "${workspaceRoot}/MoviesNetCore.Web/MoviesNetCore.Repository.csproj"
+                "${workspaceRoot}/MoviesNetCore.Repository/MoviesNetCore.Repository.csproj"
             ],
             "isBuildCommand": true,
             "problemMatcher": "$msCompile"
