@@ -3,26 +3,41 @@
 ##Pre-requisitos
 Es necesario contar con el siguiente software para poder realizar las actividades:
 
- - Microsoft Windows 7 o superior.
- - [Microsoft SQL Server 2014 Express Edition](http://www.microsoft.com/en-us/server-cloud/products/sql-server-editions/sql-server-express.aspx) . Version Gratuita, se necesita una cuenta gratis Microsoft para la descarga. Seleccionar el paquete **SQL Server Express with Tools**
- - [Microsoft Visual Studio Community Edition](https://www.visualstudio.com/es-es/downloads/download-visual-studio-vs.aspx) Version gratuita, asegurarse de instalar con todos los complementos para C Sharp y MVC
+##Windows
+1.	Instalar .NET Core SDK:
+https://www.microsoft.com/net/core#windowscmd
+(Download .NET Core SDK)
 
---
---
+2.	Instalar Node: 
+https://nodejs.org/en/
 
-- Para poder realizar las actividades, es necesario utilizar la máquina virtual provista en el curso o instalar el IDE y el servidor de base de datos.
-- Además es necesario crear una base de datos de nombre `Capacitacion_MVC`. Un dump con datos de prueba se puede encontrar en la carpeta `SQL` de la solución provista.
-- El script sql con el schema y los datos se deberá correr conectado a la nueva base `Capacitacion_MVC`.
-- Por último es necesario descargar la solución inicial y apuntar la aplicación web a la base de datos creada en el punto anterior, con el correspondiente connection string en el archivo `Web.config`.
-- Un ejemplo de connection string:
-```
-<add name="MoviesContext" connectionString="data source=localhost\SQLEXPRESS;initial catalog=Capacitacion_MVC;Trusted_Connection=True;App=EntityFramework" providerName="System.Data.SqlClient" />
-- La conexión al servidor 'SQLEXPRESS' en localhost, utilizando la autenticación por usuario de windows en el servidor SqlServer (Trusted_Connection=True o Security=SSPI).
-```
+3.	Instalar Visual Studio Code (6.x):
+https://code.visualstudio.com/ 
 
---
---
- 
-[Primera Parte - Actividades1](actividades1.md)
+4.	Instalar C# para Visual Studio Code:
+https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp
+(Install)
 
-[Segunda Parte - Actividades2](actividades2.md)
+##Ubuntu
+1. Seguir los pasos tal cual como están especificados en el siguiente link:
+https://www.microsoft.com/net/core#linuxubuntu
+2.	Instalar Node:
+Ejecutar en la consola:
+curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+sudo apt-get install -y nodejs
+(Ref: https://nodejs.org/en/download/package-manager/)
+3.	Instalar VS Code 
+Instalar el .deb package
+Link a version de 64 bits: https://go.microsoft.com/fwlink/?LinkID=760868
+Para otras versiones:
+https://code.visualstudio.com/docs/setup/linux
+
+4.	Instalar C# para Visual Studio Code:
+https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp
+(Install)
+5.	Instalar C# para Visual Studio Code:
+https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp
+(Install)
+
+Otros sistemas operativos:
+https://www.microsoft.com/net/core#windowscmd
