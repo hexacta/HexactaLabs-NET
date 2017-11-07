@@ -1,12 +1,12 @@
 Hexacta Labs: .NET MVC - Primera parte
 ======================================
 
-#Actividades
+# Actividades
 
-####Ejercicio 1: Pantallas para Películas y Géneros:
+#### Ejercicio 1: Pantallas para Películas y Géneros:
 El objetivo del ejercicio es retornar todos los objetos películas de la BD y listarlos en su vista correspondiente.
 
-#####A-	Crear el service con el método FindAll:
+##### A-	Crear el service con el método FindAll:
 Dentro del proyecto Data agregar dos clases llamadas GenreService y MovieService. Cada servicio con un método GetAll retornando una lista de cada entidad:
 ```
 public IEnumerable<Movie> GetMovies()
@@ -15,7 +15,7 @@ public IEnumerable<Movie> GetMovies()
 }
 ```
 
-#####B-	Crear ViewModels:
+##### B-	Crear ViewModels:
 Dentro de la carpeta Models del proyecto CapacitacionMVC.Web, crear dos clases (MovieVM y GenreVM):
 ```
 public class MovieVM
@@ -83,7 +83,7 @@ public class MoviesIndexModel
 }
 ```
 
-#####C-	Controller: 
+##### C-	Controller: 
 Dentro de la carpeta Controllers del proyecto CapacitacionMVC.Web, crear dos clases para los controladores de las pantallas (MoviesController y GenresController).
 En el método de la acción Index de cada controlador agregar las llamadas de tal forma que la vista reciba la lista de view models:
 
@@ -104,7 +104,7 @@ viewModel.Movies = moviesVMs;
 return View(viewModel);
 ```
 
-#####D-	Crear cshtml:
+##### D-	Crear cshtml:
 Agregar en la vista Index (tipada con el viewModel correspondiente) de cada entidad una lista que muestre las distintos registros recuperados de la base:
 
 ```
@@ -116,9 +116,9 @@ Agregar en la vista Index (tipada con el viewModel correspondiente) de cada enti
 </div>
 ```
 
-####Ejercicio 2: Completando el ejemplo anterior agreguemos la posibilidad de buscar por un nombre las películas. Realizar lo mismo para las géneros.
-#####A-	Agregarle un parámetro a la acción Index llamado “filtro (string?)” (puede ser null) que reciba el valor ingresado por el usuario.
-#####B-	Modificar el método GetAll de MovieService para que reciba el filtro correspondiente y realice la búsqueda de las películas:
+#### Ejercicio 2: Completando el ejemplo anterior agreguemos la posibilidad de buscar por un nombre las películas. Realizar lo mismo para las géneros.
+##### A-	Agregarle un parámetro a la acción Index llamado “filtro (string?)” (puede ser null) que reciba el valor ingresado por el usuario.
+##### B-	Modificar el método GetAll de MovieService para que reciba el filtro correspondiente y realice la búsqueda de las películas:
 
 ```
 public List<Movie> GetMovies(string nameFilter)
@@ -134,8 +134,8 @@ public List<Movie> GetMovies(string nameFilter)
 }
 ```
 
-####Ejercicio 3: Completando el ejercicio anterior se pide generar un listado de películas por género. La misma debe aparecer cuando se hace click en un género. Debe tener un estilo diferente al de géneros (agregar un layout diferente en cada caso). 
-#####A-	Modificar el Index de los géneros de tal forma que el nombre sea un link:
+#### Ejercicio 3: Completando el ejercicio anterior se pide generar un listado de películas por género. La misma debe aparecer cuando se hace click en un género. Debe tener un estilo diferente al de géneros (agregar un layout diferente en cada caso). 
+##### A-	Modificar el Index de los géneros de tal forma que el nombre sea un link:
 
 ```
 <div class="list-group">
@@ -146,13 +146,14 @@ public List<Movie> GetMovies(string nameFilter)
 </div>
 ```
 
-#####B-	Modificar la acción Index del controlador de películas para que reciba el id de un género.
-#####C-	Modificar el método GetAll de MovieService para que realice un filtro por el id del género.
-Ejercicio 4: Para finalizar el ejercicio agregar al mismo la posibilidad de ver los detalles de una película. Utilizar display templates para mostrar y formatear las diferentes secciones:
-#####A-	Agregar nuevas propiedades a la clase Movie.
-#####B-	Mostrar en la nueva vista el detalle de la película utilizando DisplayFor
-#####C-	Modificar la vista Index de la carpeta Movie de forma tal que cada película muestre un link llamado “Detalle” que llame a la acción Details del controlador para mostrar al detalle de la misma (se pasa el Id como parámetro).
-#####D-	Agregar a MovieService un nuevo método GetById que recupere una película a partir de su Id:
+##### B-	Modificar la acción Index del controlador de películas para que reciba el id de un género.
+##### C-	Modificar el método GetAll de MovieService para que realice un filtro por el id del género. 
+
+#### Ejercicio 4: Para finalizar el ejercicio agregar al mismo la posibilidad de ver los detalles de una película. Utilizar display templates para mostrar y formatear las diferentes secciones:
+##### A-	Agregar nuevas propiedades a la clase Movie.
+##### B-	Mostrar en la nueva vista el detalle de la película utilizando DisplayFor
+##### C-	Modificar la vista Index de la carpeta Movie de forma tal que cada película muestre un link llamado “Detalle” que llame a la acción Details del controlador para mostrar al detalle de la misma (se pasa el Id como parámetro).
+##### D-	Agregar a MovieService un nuevo método GetById que recupere una película a partir de su Id:
 
 ```
  public Movie GetById(Guid id)
@@ -161,7 +162,7 @@ Ejercicio 4: Para finalizar el ejercicio agregar al mismo la posibilidad de ver 
 }
 ```
 
-#####8-	Agregar una nueva acción en el controlador de películas llamada Details que reciba el Id de una película y muestre su detalle:
+##### E-	Agregar una nueva acción en el controlador de películas llamada Details que reciba el Id de una película y muestre su detalle:
 
 ```
  public ActionResult Details(Guid id)
@@ -172,7 +173,7 @@ Ejercicio 4: Para finalizar el ejercicio agregar al mismo la posibilidad de ver 
 }
 ```
 
-#####9-	Agregar una nueva vista en la carpeta Movies llamada Details (vista tipada con el modelo MoviesDetailsModel)
+##### F-	Agregar una nueva vista en la carpeta Movies llamada Details (vista tipada con el modelo MoviesDetailsModel)
 
 
 
