@@ -134,6 +134,18 @@ public List<Movie> GetMovies(string nameFilter)
 }
 ```
 
+#### C - Agregar en el Index.cshtml el código del formulario de búsqueda
+
+```
+@using (Html.BeginForm("Index", "Movies", FormMethod.Get, new { @class = "form-inline", role = "form" }))
+{
+    <div class="form-group" style="min-width: 400px;">
+        @Html.TextBoxFor(m => m.SearchText, new { @class = "form-control input-lg", type = "search", placeholder = Html.DisplayNameFor(m => m.SearchText), autofocus = "autofocus" })
+    </div>
+    <button class="btn btn-primary btn-lg text-left" type="submit">Buscar</button>
+}
+```
+
 #### Ejercicio 3: Completando el ejercicio anterior se pide generar un listado de películas por género. La misma debe aparecer cuando se hace click en un género. Debe tener un estilo diferente al de géneros (agregar un layout diferente en cada caso). 
 ##### A-	Modificar el Index de los géneros de tal forma que el nombre sea un link:
 
