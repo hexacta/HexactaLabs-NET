@@ -1,11 +1,11 @@
 Hexacta Labs: .NET MVC - Segunda parte
 ======================================
 
-#Actividades
+# Actividades
 
-####Ejercicio 1: Permitir agregar una nueva película:
+### Ejercicio 1: Permitir agregar una nueva película:
 
-#####A-	Crear una nueva acción Create en el controlador de películas:
+##### A - Crear una nueva acción Create en el controlador de películas:
 ```
 public ActionResult Create()
 {
@@ -13,9 +13,13 @@ public ActionResult Create()
 }
 ```
 
+##### B - Agregar una nueva vista "Create" con un formulario que permita cargar cada campo de una película. 
+Deben utilizarse los helpers tipados de Razor  
+ - FormBuilder  
+ - LabelFor  
+ - TextBoxFor  
 
-
-#####B-	Agregar una nueva vista Create con un formulario que permita cargar cada campo de una película. El formulario debe ir por POST a una nueva acción Create del controlado:
+#### C - El formulario debe ir por POST a una nueva acción Create del controlador:
 
 ```
 [HttpPost]
@@ -38,35 +42,32 @@ public ActionResult Create(MovieVM movie)
     return this.View(new MoviesCreateModel() { ViewAction = ViewAction.Create, Movie = movie});
 }
 ```
---
---
 
 
-####Ejercicio 2: Agregar validaciones al alta de películas:
 
-#####A- Campos requeridos: Name, ReleaseDate, Plot, CoverLink y Runtime.
-#####B- ReleaseDate tiene que ser una fecha valida.
-#####C- El rango valido de valores para Runtime es de 30 a 300. 
-#####D- El campo Name solo permite 100 caracteres. 
+### Ejercicio 2: Agregar validaciones al alta de películas:
 
---
---
+##### A- Campos requeridos: Name, ReleaseDate, Plot, CoverLink y Runtime.
+##### B- ReleaseDate tiene que ser una fecha valida.
+##### C- El rango valido de valores para Runtime es de 30 a 300. 
+##### D- El campo Name solo permite 100 caracteres. 
 
-####Ejercicio 3: Si la película se guardó exitosamente retornar a la grilla de películas y mostrar mensaje de éxito. 
 
-#####A-	El mensaje debe contener el nombre de la película que se creó:
+### Ejercicio 3: Si la película se guardó exitosamente retornar a la grilla de películas y mostrar mensaje de éxito. 
+
+##### A-El mensaje debe contener el nombre de la película que se creó:
 
 ```
 this.TempData["successmessage"] = "Se ha agregado exitosamente la pelicula: " + movie.Name;
 ```
 
---
---
-
-####Ejercicio 4: Agregar la funcionalidad de permitir editar una película. El usuario debería ser capaz de poder editar la película mediante haciendo click en un link botón “Editar” en la grilla de películas: 
+##### Bonus - Agregar otro botón “Save and New” que permitirá al usuario crear la película y seguir cargando otra película a continuación. En este caso, mostrar otro mensaje de éxito en este caso en la pantalla de creación de película. 
 
 
-#####A-	Agregar una nueva acción en el controlador de películas (reutilizar la vista de creación):
+### Ejercicio 4: Agregar la funcionalidad de permitir editar una película. El usuario debería ser capaz de poder editar la película mediante haciendo click en un link botón “Editar” en la grilla de películas: 
+
+
+##### A-	Agregar una nueva acción en el controlador de películas (reutilizar la vista de creación):
 ```
 public ActionResult Edit(Guid id)
 {
@@ -78,7 +79,7 @@ public ActionResult Edit(Guid id)
 ```
 
 
-#####B- El formulario en este caso debe ir por POST a la acción Edit del controlador:
+##### B- El formulario en este caso debe ir por POST a la acción Edit del controlador:
 ```
 [HttpPost]
 public ActionResult Edit(MovieVM movie)
@@ -108,30 +109,28 @@ public ActionResult Edit(MovieVM movie)
 --
 --
 
+### Ejercicio 5: En la creación y edición de películas, incorporar la posibilidad de ingresar cuales son los géneros de la película. En la grilla de películas, por cada película mostrar cuáles son sus géneros.
 
 
-####Ejercicio 5: En la creación y edición de películas, incorporar la posibilidad de ingresar cuales son los géneros de la película. En la grilla de películas, por cada película mostrar cuáles son sus géneros.
-
-
-#####A- Agregar un ListBox en la pantalla de creación de películas:
+##### A- Agregar un ListBox en la pantalla de creación de películas:
 ```
 @Html.ListBox("selectedGenres", Model.Genres.Select(s => new SelectListItem() { Text = s.Name, Value = s.Id.ToString(), Selected = Model.Movie.Genres.Any(a => a.Id == s.Id) }), new { @class = "form-control", size = "8" })
 ```
 
 
-#####B- Agregar un parámetro en la acción Crear/Editar que reciba la lista géneros seleccionados:
+##### B- Agregar un parámetro en la acción Crear/Editar que reciba la lista géneros seleccionados:
 ```
 IEnumerable<Guid> selectedGenres
 ```
 
 
-#####C- Agregar una nueva propiedad al viewModel que sea una lista de generos:
+##### C- Agregar una nueva propiedad al viewModel que sea una lista de generos:
 ```
 return this.View("Create", new MoviesCreateModel() { ViewAction = ViewAction.Edit, Movie = movie, Genres = this.genreService.GetGenres() });
 ```
 
 
-#####D- Modificar las acciones para que se guarden las relaciones entre peliculas y generos:
+##### D- Modificar las acciones para que se guarden las relaciones entre peliculas y generos:
 ```
 if (selectedGenres != null)
 {
@@ -151,7 +150,7 @@ if (selectedGenres != null)
 --
 --
 
-####Ejercicio 6: En la grilla de películas, agregar un link “Delete” para borrar la película:
+### Ejercicio 6: En la grilla de películas, agregar un link “Delete” para borrar la película:
 
 ```
 $.ajax({
@@ -164,7 +163,4 @@ $.ajax({
 
 --
 --
-
-
-
 
